@@ -206,7 +206,7 @@ ENV PATH="/usr/games/:${PATH}"
 RUN <<_INSTALL_SWAY
 #!/bin/bash
 set -e
-curl -L -o sway.deb https://launchpad.net/ubuntu/+source/sway/1.9-1build2/+build/28013086/+files/sway_1.9-1build2_amd64.deb
+curl -L -o sway.deb https://launchpad.net/ubuntu/+source/sway/1.11-3/+build/31434276/+files/sway_1.11-3_amd64.deb
 apt update
 apt install -y --no-install-recommends ./sway.deb
 rm -rf /var/lib/apt/lists/* ./sway.deb
