@@ -90,8 +90,9 @@ RUN <<_BUILD_XWAYLAND
     LATEST_TAG=$(git ls-remote --tags --refs --sort='version:refname' \
       https://gitlab.freedesktop.org/xorg/xserver.git 'refs/tags/xwayland-*' \
       | awk -F/ '{print $NF}' \
-      | grep -E '^xwayland-[0-9]+(\.[0-9]+)+$' \
+      | grep -E '^xwayland-24(\.[0-9]+)+$' \
       | tail -1)
+    LATEST_TAG=
     test -n "$LATEST_TAG" || { echo "Failed to resolve latest xwayland tag"; exit 1; }
     echo "Building $LATEST_TAG"
 
@@ -158,12 +159,12 @@ ARG REQUIRED_PACKAGES="\
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends software-properties-common && \
-    # add-apt-repository -y ppa:kisak/kisak-mesa && \
+    add-apt-repository -y ppa:kisak/kisak-mesa && \
     apt-get update -y && \
     apt-get install -y --no-install-recommends \
     $REQUIRED_PACKAGES && \
     apt-get remove -y --purge software-properties-common && \
-    # rm -f /etc/apt/sources.list.d/kisak-ubuntu-kisak-mesa-*.sources && \
+    rm -f /etc/apt/sources.list.d/kisak-ubuntu-kisak-mesa-*.sources && \
     rm -rf /var/lib/apt/lists/*
 
 # Install patched Xwayland into /usr/local (wins over distro /usr/bin/Xwayland
