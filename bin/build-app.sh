@@ -4,7 +4,7 @@ set -euo pipefail
 # First argument controls the app to build (ex: steam)
 APP_NAME=${1:-"steam"}
 # Second argument controls the variant of the image (ex: -fedora)
-IMAGE_VARIANT=${2:-"-fedora"}
+IMAGE_VARIANT=$2 #${2:-"-fedora"}
 
 echo "======================================"
 echo "🔨 Building gow/base${IMAGE_VARIANT}..."
