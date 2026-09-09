@@ -59,7 +59,7 @@ RUN touch /etc/NetworkManager/conf.d/10-globally-managed-devices.conf
 
 # Install LeShade
 RUN curl -L -o /tmp/LeShade-x86_64.flatpak https://github.com/Ishidawg/LeShade/releases/download/2.5.0/LeShade-x86_64.flatpak && \
-    flatpak install -y /tmp/LeShade-x86_64.flatpak && \
+    flatpak install -y /tmp/LeShade-x86_64.flatpak
 
 # skip annoying debian dialog
 RUN rm /usr/bin/zenity && ln -s /usr/bin/true /usr/bin/zenity
