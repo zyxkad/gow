@@ -31,6 +31,7 @@ ARG REQUIRED_PACKAGES=" \
     dbus-daemon dbus-system-bus-common dbus-session-bus-common whoopsie network-manager bluez \
     ibus curl pkexec xz-utils zenity file xdg-user-dirs xdg-utils pciutils lsb-release mesa-utils \
     libfontconfig1:i386 libfontconfig1:amd64 libfreetype6 libfreetype6:i386 \
+    flatpak \
 "
 
 ARG AVOID_PACKAGES=" \
@@ -48,6 +49,10 @@ RUN apt-get update -y && \
     # \
     # Fix steam updater UI font file \
     ln -s /usr/share/fonts/truetype/dejavu /usr/share/fonts/truetype/ttf-dejavu && \
+    # \
+    mkdir -p /pre-install &&
+    curl --output /pre-install/LeShade-x86_64.flatpak -L https://github.com/Ishidawg/LeShade/releases/download/2.5.0/LeShade-x86_64.flatpak && \
+    # flatpak install /tmp/LeShade-x86_64.flatpak && \
     # \
     # Cleanup \
     apt-get remove -y python3-six software-properties-common && \
