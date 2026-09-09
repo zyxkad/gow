@@ -81,6 +81,11 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 # bindsym $mod+r mode "resize"
+# Fullscreen
+bindsym $mod+Shift+f fullscreen
+# Minimize
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 include /etc/sway/config.d/*
 
