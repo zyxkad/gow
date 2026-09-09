@@ -92,7 +92,6 @@ RUN <<_BUILD_XWAYLAND
       | awk -F/ '{print $NF}' \
       | grep -E '^xwayland-24(\.[0-9]+)+$' \
       | tail -1)
-    LATEST_TAG=
     test -n "$LATEST_TAG" || { echo "Failed to resolve latest xwayland tag"; exit 1; }
     echo "Building $LATEST_TAG"
 
