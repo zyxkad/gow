@@ -1,4 +1,4 @@
-FROM ubuntu:22.04 AS nvidia-installer
+FROM ubuntu:26.04 AS nvidia-installer
 
 ARG NV_VERSION
 RUN apt-get update -y && \
