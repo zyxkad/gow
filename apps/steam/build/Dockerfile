@@ -50,15 +50,16 @@ RUN apt-get update -y && \
     # Fix steam updater UI font file \
     ln -s /usr/share/fonts/truetype/dejavu /usr/share/fonts/truetype/ttf-dejavu && \
     # \
-    curl -L -o /tmp/LeShade-x86_64.flatpak https://github.com/Ishidawg/LeShade/releases/download/2.5.0/LeShade-x86_64.flatpak && \
-    flatpak install -y /tmp/LeShade-x86_64.flatpak && \
-    # \
     # Cleanup \
     apt-get remove -y python3-six software-properties-common && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 # fix NetworkManager not picking up devices
 RUN touch /etc/NetworkManager/conf.d/10-globally-managed-devices.conf
+
+# Install LeShade
+RUN curl -L -o /tmp/LeShade-x86_64.flatpak https://github.com/Ishidawg/LeShade/releases/download/2.5.0/LeShade-x86_64.flatpak && \
+    flatpak install -y /tmp/LeShade-x86_64.flatpak && \
 
 # skip annoying debian dialog
 RUN rm /usr/bin/zenity && ln -s /usr/bin/true /usr/bin/zenity
