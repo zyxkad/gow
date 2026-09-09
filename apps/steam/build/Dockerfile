@@ -50,9 +50,8 @@ RUN apt-get update -y && \
     # Fix steam updater UI font file \
     ln -s /usr/share/fonts/truetype/dejavu /usr/share/fonts/truetype/ttf-dejavu && \
     # \
-    mkdir -p /pre-install && \
-    curl -L -o /pre-install/LeShade-x86_64.flatpak https://github.com/Ishidawg/LeShade/releases/download/2.5.0/LeShade-x86_64.flatpak && \
-    # flatpak install /tmp/LeShade-x86_64.flatpak && \
+    curl -L -o /tmp/LeShade-x86_64.flatpak https://github.com/Ishidawg/LeShade/releases/download/2.5.0/LeShade-x86_64.flatpak && \
+    flatpak install -y /tmp/LeShade-x86_64.flatpak && \
     # \
     # Cleanup \
     apt-get remove -y python3-six software-properties-common && \
