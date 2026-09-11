@@ -32,6 +32,7 @@ ARG REQUIRED_PACKAGES=" \
     ibus curl pkexec xz-utils zenity file xdg-user-dirs xdg-utils pciutils lsb-release mesa-utils \
     libfontconfig1:i386 libfontconfig1:amd64 libfreetype6 libfreetype6:i386 \
     flatpak \
+    linux-tools-generic linux-image-extra-virtual \
 "
 
 ARG AVOID_PACKAGES=" \
