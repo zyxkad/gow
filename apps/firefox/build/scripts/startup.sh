@@ -2,4 +2,4 @@
 set -e
 
 source /opt/gow/launch-comp.sh
-launcher /usr/bin/env google-chrome
+launcher /usr/bin/google-chrome --no-sandbox
