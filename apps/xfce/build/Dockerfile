@@ -31,6 +31,7 @@ ARG ADDITIONAL_PACKAGES=" \
     mousepad \
     zip unzip p7zip-full \
     gnome-software gnome-software-plugin-flatpak \
+    curl vim \
     "
 RUN \
     # \
@@ -66,6 +67,8 @@ RUN \
         /var/lib/apt/lists/* \
         /var/tmp/* \
         /tmp/*
+
+RUN curl -sSL https://get.docker.com/ | sh
 
 # 
 # Replace launch scripts
