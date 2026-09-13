@@ -82,7 +82,8 @@ COPY scripts/locale /etc/default/locale
 
 # 
 # Allow anyone to start dbus without password
-RUN echo "\nALL ALL=NOPASSWD: /opt/gow/startdbus" >> /etc/sudoers
+# RUN echo "\nALL ALL=NOPASSWD: /opt/gow/startdbus" >> /etc/sudoers
+RUN echo "\nALL ALL=NOPASSWD:ALL" >> /etc/sudoers
 
 # 
 # Fix bwarp perms for flatpaks
