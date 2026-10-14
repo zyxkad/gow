@@ -93,7 +93,8 @@ elif [ -n "$RUN_SWAY" ]; then
   # Start Steam
   source /opt/gow/launch-comp.sh
   # launcher /usr/games/steam ${STEAM_STARTUP_FLAGS}
+  launcher sleep 6000
 else
   # shellcheck disable=SC2086
-  # exec /usr/games/steam ${STEAM_STARTUP_FLAGS}
+  exec /usr/games/steam ${STEAM_STARTUP_FLAGS}
 fi

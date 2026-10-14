@@ -32,6 +32,7 @@ ARG REQUIRED_PACKAGES=" \
     libfontconfig1 libfreetype6 \
     flatpak \
     linux-tools-generic linux-image-extra-virtual \
+    cabextract unzip \
 "
 
 ARG AVOID_PACKAGES=" \
