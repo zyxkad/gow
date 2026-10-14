@@ -70,7 +70,9 @@ ARG LUG_HELPER_VERSION=v4.17
 RUN mkdir -p /usr/local/libexec/lug-helper/ && \
  curl -L -o - https://github.com/starcitizen-lug/lug-helper/releases/download/${LUG_HELPER_VERSION}/lug-helper-${LUG_HELPER_VERSION}.tar.gz | \
  tar -C /usr/local/libexec/lug-helper/ --strip-components=1 -xzvf - && \
- ln -s /usr/local/libexec/lug-helper/lug-helper.sh /usr/local/bin/lug-helper.sh
+ ln -s /usr/local/libexec/lug-helper/lug-helper.sh /usr/local/bin/lug-helper.sh && \
+ mkdir -p /home/retro/Games/star-citizen && \
+ /usr/local/libexec/lug-helper/lug-helper.sh -g -i
 
 ENV XDG_RUNTIME_DIR=/tmp/.X11-unix
 
