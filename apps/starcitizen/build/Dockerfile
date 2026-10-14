@@ -66,9 +66,11 @@ COPY --chmod=777 scripts/startup.sh /opt/gow/startup-app.sh
 COPY --chmod=777 scripts/system-services.sh /etc/cont-init.d/system-services.sh
 COPY --from=bwrap-builder --chmod=755 /root/bubblewrap/_builddir/bwrap /usr/bin/bwrap
 
-RUN curl -L -o /usr/local/bin/lug-helper.sh \
- https://raw.githubusercontent.com/starcitizen-lug/lug-helper/refs/heads/main/lug-helper.sh && \
- chmod 0777 /usr/local/bin/lug-helper.sh
+ARG LUG_HELPER_VERSION=v4.17
+RUN mkdir -p /usr/local/libexec/lug-helper/ && \
+ curl -L -o - https://github.com/starcitizen-lug/lug-helper/releases/download/${LUG_HELPER_VERSION}/lug-helper-${LUG_HELPER_VERSION}.tar.gz | \
+ tar -C /usr/local/libexec/lug-helper/ --strip-components=1 -xzvf - && \
+ ln -s /usr/local/libexec/lug-helper/lug-helper.sh /usr/local/bin/lug-helper.sh
 
 ENV XDG_RUNTIME_DIR=/tmp/.X11-unix
 
