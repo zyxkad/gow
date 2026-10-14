@@ -63,7 +63,6 @@ RUN fc-cache -f -v
 
 COPY --chmod=777 scripts/startup.sh /opt/gow/startup-app.sh
 COPY --chmod=777 scripts/system-services.sh /etc/cont-init.d/system-services.sh
-COPY --chmod=777 jupiter-biosupdate /usr/bin/jupiter-biosupdate
 COPY --from=bwrap-builder --chmod=755 /root/bubblewrap/_builddir/bwrap /usr/bin/bwrap
 
 RUN curl -L -o /usr/local/bin/lug-helper.sh \
