@@ -13,6 +13,7 @@ export WINEDLLOVERRIDES=dxgi=n
 # Scaling support
 export STEAM_GAMESCOPE_FANCY_SCALING_SUPPORT=1
 
+/usr/local/libexec/lug-helper/lug-helper.sh -g -i </dev/null 2>&1
 
 if [ -n "$RUN_GAMESCOPE" ]; then
   GAMESCOPE_BIN="$(command -v gamescope)"
