@@ -73,10 +73,8 @@ RUN mkdir -p /usr/local/libexec/lug-helper/ && \
  ln -s /usr/local/libexec/lug-helper/lug-helper.sh /usr/local/bin/lug-helper.sh && \
  mkdir -p /home/retro/Games/star-citizen
 
-RUN mv /usr/bin/zenity /usr/bin/zenity.disabled && \
- bash -c "function id() { echo 1; }; export -f id && \
- /usr/local/libexec/lug-helper/lug-helper.sh -g -i" && \
- mv /usr/bin/zenity.disabled /usr/bin/zenity
+RUN bash -c "function id() { echo 1; }; export -f id && \
+ /usr/local/libexec/lug-helper/lug-helper.sh -g -i"
 
 ENV XDG_RUNTIME_DIR=/tmp/.X11-unix
 
