@@ -90,7 +90,7 @@ RUN <<_BUILD_XWAYLAND
     LATEST_TAG=$(git ls-remote --tags --refs --sort='version:refname' \
       https://gitlab.freedesktop.org/xorg/xserver.git 'refs/tags/xwayland-*' \
       | awk -F/ '{print $NF}' \
-      | grep -E '^xwayland-24(\.[0-9]+)+$' \
+      | grep -E '^xwayland-26(\.[0-9]+)+$' \
       | tail -1)
     test -n "$LATEST_TAG" || { echo "Failed to resolve latest xwayland tag"; exit 1; }
     echo "Building $LATEST_TAG"
@@ -102,6 +102,9 @@ RUN <<_BUILD_XWAYLAND
       https://gitlab.freedesktop.org/xorg/xserver.git "${LATEST_TAG}"
     cd "${LATEST_TAG}"
     pwd
+
+    curl -L -o - https://raw.githubusercontent.com/Nobara-Project/rpm-sources/refs/heads/main/baseos/xorg-x11-server-Xwayland/xwayland-pointer-warp-fix.patch \
+     | git apply -3
 
     TARGET=hw/xwayland/xwayland-output.c
     ls -la "$TARGET"
@@ -206,7 +209,7 @@ ENV PATH="/usr/games/:${PATH}"
 RUN <<_INSTALL_SWAY
 #!/bin/bash
 set -e
-curl -L -o sway.deb https://launchpad.net/ubuntu/+source/sway/1.11-3/+build/31434276/+files/sway_1.11-3_amd64.deb
+curl -L -o sway.deb https://launchpad.net/ubuntu/+source/sway/1.12-1/+build/32897687/+files/sway_1.12-1_amd64.deb
 apt update
 apt install -y --no-install-recommends ./sway.deb
 rm -rf /var/lib/apt/lists/* ./sway.deb
