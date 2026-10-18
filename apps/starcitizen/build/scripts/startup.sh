@@ -7,9 +7,6 @@ gow_log "StarCitizen startup.sh"
 
 mkdir -p "$HOME/"
 
-# To expose vram info from radv
-export WINEDLLOVERRIDES=dxgi=n
-
 # Scaling support
 export STEAM_GAMESCOPE_FANCY_SCALING_SUPPORT=1
 
