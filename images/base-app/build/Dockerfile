@@ -98,7 +98,7 @@ RUN <<_BUILD_XWAYLAND
     # Fetch sources from the same host the ls-remote above talked to.
     # xorg.freedesktop.org's archive mirror has gone down intermittently
     # and taken CI with it; gitlab.freedesktop.org hosts the same tags.
-    git clone --depth 1 --branch "${LATEST_TAG}" \
+    git clone --branch "${LATEST_TAG}" \
       https://gitlab.freedesktop.org/xorg/xserver.git "${LATEST_TAG}"
     cd "${LATEST_TAG}"
     pwd

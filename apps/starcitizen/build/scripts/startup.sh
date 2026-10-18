@@ -68,8 +68,6 @@ if [ -n "$RUN_GAMESCOPE" ]; then
 	exit 1
   fi
 
-  # Start IBus to enable showing the steam on-screen keyboard
-  /usr/bin/ibus-daemon -d -r --panel=disable --emoji-extension=disable
   # Launch mango.
   # NOTE: on the Ubuntu base-app, `mangoapp` is not installed (upstream
   # MangoHud's release tarball ships only mangohud + mangoplot). On the
@@ -84,9 +82,6 @@ if [ -n "$RUN_GAMESCOPE" ]; then
   dbus-run-session -- /home/retro/Games/star-citizen/sc-launch.sh
 
 elif [ -n "$RUN_SWAY" ]; then
-  # Start IBus to enable showing the steam on-screen keyboard
-  /usr/bin/ibus-daemon -d -r --panel=disable --emoji-extension=disable
-
   # Enable MangoHud for all vulkan (including Proton) games
   # unless the user has explicitly disabled it in config.
   export MANGOHUD=${MANGOHUD:-1}
