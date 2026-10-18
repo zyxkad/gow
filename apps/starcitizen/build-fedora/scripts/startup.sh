@@ -10,7 +10,9 @@ mkdir -p "$HOME/"
 # Scaling support
 export STEAM_GAMESCOPE_FANCY_SCALING_SUPPORT=1
 
-/usr/local/libexec/lug-helper/lug-helper.sh -g -i </dev/null 2>&1
+if ! [ -f /home/retro/Games/star-citizen/.lughelper ]; then
+  /usr/local/libexec/lug-helper/lug-helper.sh -g -i </dev/null 2>&1
+fi
 
 if [ -n "$RUN_GAMESCOPE" ]; then
   # Setup socket for gamescope statistics shown in mango and steam
