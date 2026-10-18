@@ -17,8 +17,5 @@ BLUETOOTHD="$(command -v bluetoothd || true)"
 gow_log "*** Bluez started ***"
 NetworkManager
 gow_log "*** NetworkManager started ***"
-# Watchdog will stop steam when selecting Turn off, Suspend or Restart from the Steam power menu
-steamos-dbus-watchdog.sh &
-gow_log "*** D-Bus Watchdog started ***"
 
 disown
