@@ -28,7 +28,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 ARG REQUIRED_PACKAGES=" \
     dbus-daemon dbus-system-bus-common dbus-session-bus-common whoopsie network-manager bluez \
-    ibus curl pkexec xz-utils zenity file xdg-user-dirs xdg-utils pciutils lsb-release mesa-utils \
+    curl pkexec xz-utils zenity file xdg-user-dirs xdg-utils pciutils lsb-release mesa-utils \
     libfontconfig1 libfreetype6 \
     flatpak \
     linux-tools-generic linux-image-extra-virtual \
